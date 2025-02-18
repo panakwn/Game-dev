@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=16 format=3 uid="uid://ch0me5vux4or2"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
@@ -63,6 +63,9 @@ animations = [{
 radius = 93.0
 height = 420.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nbqr"]
+size = Vector2(203.5, 78)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_43s82")
@@ -77,5 +80,9 @@ frame_progress = 0.616973
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(19, 84)
 shape = SubResource("CapsuleShape2D_igykg")
+
+[node name="world_interaction" type="CollisionShape2D" parent="."]
+position = Vector2(14, 249)
+shape = SubResource("RectangleShape2D_2nbqr")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
