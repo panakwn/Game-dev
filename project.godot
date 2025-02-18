@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Dark Fantacy"
-run/main_scene="res://scenes/player.tscn"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [editor]
 

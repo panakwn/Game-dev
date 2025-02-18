@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var world_interaction: CollisionShape2D = $world_interaction
+@onready var collision_shape: CollisionShape2D = $CollisionShape
 
 const SPEED = 300.0
 

@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://6il51xod3kbe"]
+[gd_scene load_steps=3 format=3 uid="uid://6il51xod3kbe"]
 
-[ext_resource type="Script" path="res://script/tree.gd" id="1_5jmbm"]
 [ext_resource type="Texture2D" uid="uid://cryqbtt1pekm3" path="res://data/world/tree.png" id="1_qj67o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_macye"]
-size = Vector2(298.469, 326)
+[sub_resource type="CircleShape2D" id="CircleShape2D_fa34p"]
+radius = 38.0789
 
-[node name="tree2d" type="Node2D"]
-position = Vector2(0, -3)
-script = ExtResource("1_5jmbm")
+[node name="StaticBody2D" type="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(4, 0)
 
-[node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(500, 52)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-1140, -888)
 texture = ExtResource("1_qj67o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(500.766, 21)
-shape = SubResource("RectangleShape2D_macye")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1137, -729)
+shape = SubResource("CircleShape2D_fa34p")
