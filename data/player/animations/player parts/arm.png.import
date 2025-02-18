@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bim10axayneee"
-path="res://.godot/imported/arm1.png-0c6e7e3bb9fee11b13784cb3c11f3ff6.ctex"
+path="res://.godot/imported/arm.png-72ea882abafeee35df1e0262d2d08ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/player/animations/player parts/arm1.png"
-dest_files=["res://.godot/imported/arm1.png-0c6e7e3bb9fee11b13784cb3c11f3ff6.ctex"]
+source_file="res://data/player/animations/player parts/arm.png"
+dest_files=["res://.godot/imported/arm.png-72ea882abafeee35df1e0262d2d08ec4.ctex"]
 
 [params]
 
