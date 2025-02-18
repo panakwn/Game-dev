@@ -1,26 +1,46 @@
 extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 
-const SPEED = 400.0
+const SPEED = 300.0
+
+const SPRINT_SPEED = 750.0
 
 func _physics_process(delta: float) -> void:
 
 	var directionx := Input.get_axis("left", "right")
-	if directionx:
-		velocity.x = directionx * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
 	var directiony := Input.get_axis("up", "down")
-	if directiony:
-		velocity.y = directiony * SPEED
+	var sprint := Input.is_action_pressed("sprint")
+	
+	var current_speed
+	
+	if sprint:
+		current_speed = SPRINT_SPEED
+		animated_sprite.speed_scale = 2
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		current_speed = SPEED
+		animated_sprite.speed_scale  = 1
+	
+	if directionx:
+		if directiony:
+			velocity.x = directionx * current_speed * 0.75
+		else:
+			velocity.x = directionx * current_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+	
+	if directiony:
+		if directionx:
+			velocity.y = directiony * current_speed * 0.75
+		else:
+			velocity.y = directiony * current_speed
+	else:
+		velocity.y = move_toward(velocity.y, 0, current_speed)
 		
 	if velocity.x != 0 or velocity.y != 0:
 		animated_sprite.play("run")
 	else:
 		animated_sprite.play("idle")
+		
 		
 	if directionx > 0:
 		animated_sprite.flip_h = false

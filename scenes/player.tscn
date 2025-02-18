@@ -56,7 +56,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 25.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_igykg"]
@@ -72,7 +72,7 @@ position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_qi5bw")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.616973
+frame_progress = 0.414703
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(19, 84)
