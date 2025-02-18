@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ch0me5vux4or2" path="res://scenes/player.tscn" id="1_32i7x"]
 [ext_resource type="Texture2D" uid="uid://sktg21iqksfr" path="res://data/world/house.png" id="2_f28gl"]
-[ext_resource type="PackedScene" uid="uid://6il51xod3kbe" path="res://scenes/tree.tscn" id="3_iq3ds"]
+[ext_resource type="PackedScene" path="res://scenes/tree.tscn" id="3_iq3ds"]
 
 [node name="World" type="Node2D"]
 
@@ -22,7 +22,7 @@ position = Vector2(1422, 308)
 position = Vector2(1398, -1346)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_32i7x")]
-position = Vector2(-429, -723)
+position = Vector2(-774, -720)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
