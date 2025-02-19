@@ -12,6 +12,8 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.length() > 0:
 		$AnimatedSprite2D.play("Run")
+		$Walk_Anim.play("step")
+		
 	else:
 		$AnimatedSprite2D.play("Idle")
 	
@@ -26,7 +28,7 @@ func attack()-> void:
 		return
 	is_attacking = true
 	$AnimatedSprite2D.play("Attack")
-	$AnimationPlayer.play("attac")
+	$Attack_Anim.play("attac")
 	var attack_timer = Timer.new()
 	attack_timer.wait_time = 1
 	attack_timer.one_shot = true
