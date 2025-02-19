@@ -62,7 +62,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
 radius = 55.3173
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_43s82")
@@ -72,7 +72,6 @@ position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_qi5bw")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.414703
 
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)

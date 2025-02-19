@@ -1,0 +1,132 @@
+[gd_scene load_steps=20 format=3 uid="uid://svlb6g2rbkhj"]
+
+[ext_resource type="Script" path="res://script/EvilMushroom.gd" id="1_503eu"]
+[ext_resource type="Texture2D" uid="uid://b32yf6mtu5fqa" path="res://data/Mushroom/Idle.png" id="1_jdcim"]
+[ext_resource type="Script" path="res://script/StateMachine.gd" id="2_v61v5"]
+[ext_resource type="Texture2D" uid="uid://cg00xr2dj3dfc" path="res://data/Mushroom/Run.png" id="3_gg672"]
+[ext_resource type="Script" path="res://script/EnemyIdle.gd" id="3_tr01x"]
+[ext_resource type="Script" path="res://script/EnemyFollowPlayer.gd" id="6_2xobj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj2th"]
+radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3op3y"]
+atlas = ExtResource("1_jdcim")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsvuc"]
+atlas = ExtResource("1_jdcim")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo2ar"]
+atlas = ExtResource("1_jdcim")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df45u"]
+atlas = ExtResource("1_jdcim")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gyjh"]
+atlas = ExtResource("3_gg672")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu8pt"]
+atlas = ExtResource("3_gg672")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmbtg"]
+atlas = ExtResource("3_gg672")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysg8g"]
+atlas = ExtResource("3_gg672")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpwd6"]
+atlas = ExtResource("3_gg672")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvl5m"]
+atlas = ExtResource("3_gg672")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27q5x"]
+atlas = ExtResource("3_gg672")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pemb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3op3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsvuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo2ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df45u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gyjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu8pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmbtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysg8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpwd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvl5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27q5x")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[node name="EvilMushroomEnemy" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("1_503eu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 18)
+shape = SubResource("CircleShape2D_lj2th")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+y_sort_enabled = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pemb7")
+animation = &"Run"
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_v61v5")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="CharacterBody2D/StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_tr01x")
+enemy = NodePath("../..")
+move_speed = 250
+
+[node name="Follow" type="Node" parent="CharacterBody2D/StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_2xobj")
+enemy = NodePath("../..")
+move_speed = 480

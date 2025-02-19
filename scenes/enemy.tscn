@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqpy4s3w5oogm"]
+
+[ext_resource type="Texture2D" uid="uid://b32yf6mtu5fqa" path="res://data/Mushroom/Idle.png" id="1_6pfrl"]
+[ext_resource type="Script" path="res://script/StateMachine.gd" id="2_ocmk0"]
+[ext_resource type="Script" path="res://script/EnemyIdle.gd" id="3_6hgq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kqs"]
+size = Vector2(14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3op3y"]
+atlas = ExtResource("1_6pfrl")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsvuc"]
+atlas = ExtResource("1_6pfrl")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo2ar"]
+atlas = ExtResource("1_6pfrl")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df45u"]
+atlas = ExtResource("1_6pfrl")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghydm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3op3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsvuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo2ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df45u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_y2kqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ghydm")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_ocmk0")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="StateMachine"]
+script = ExtResource("3_6hgq5")
+move_speed = 585

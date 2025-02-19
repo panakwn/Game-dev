@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5rsl0phdh5sx"]
+[gd_scene load_steps=6 format=3 uid="uid://c5rsl0phdh5sx"]
 
 [ext_resource type="PackedScene" uid="uid://ch0me5vux4or2" path="res://scenes/player.tscn" id="1_32i7x"]
 [ext_resource type="Texture2D" uid="uid://ciwa54i2o86y1" path="res://scenes/grass.png" id="1_h2hf7"]
 [ext_resource type="PackedScene" uid="uid://clsittjnhorq2" path="res://scenes/house.tscn" id="3_brfyc"]
 [ext_resource type="PackedScene" uid="uid://6il51xod3kbe" path="res://scenes/tree.tscn" id="3_iq3ds"]
+[ext_resource type="PackedScene" uid="uid://svlb6g2rbkhj" path="res://scenes/EvilMushroomEnemy.tscn" id="5_4g1sr"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(794, 780)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 texture_repeat = 2
-position = Vector2(668.5, 40.28)
+position = Vector2(672, 114)
 scale = Vector2(0.86, 0.711)
 texture = ExtResource("1_h2hf7")
 region_enabled = true
@@ -25,34 +27,38 @@ zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(750, 246)
+position = Vector2(-458, -261)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(841, 238)
+position = Vector2(850, -44)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3040, 426)
+position = Vector2(2084, -407)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3350, 581)
+position = Vector2(2394, -252)
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3484, 520)
+position = Vector2(2528, -313)
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3182, 513)
+position = Vector2(2226, -320)
 
 [node name="StaticBody2D7" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3579, 338)
+position = Vector2(2623, -495)
 
 [node name="StaticBody2D8" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3424, 150)
+position = Vector2(2389, -681)
 
 [node name="StaticBody2D9" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3256, 123)
+position = Vector2(2300, -710)
 
 [node name="StaticBody2D10" parent="." instance=ExtResource("3_iq3ds")]
-position = Vector2(3108, 197)
+position = Vector2(2152, -636)
 
 [node name="StaticBody2D11" parent="." instance=ExtResource("3_brfyc")]
 position = Vector2(514, -405)
+
+[node name="EvilMushroomEnemy" parent="." instance=ExtResource("5_4g1sr")]
+position = Vector2(711, 184)
+scale = Vector2(12.3558, 9.63361)
