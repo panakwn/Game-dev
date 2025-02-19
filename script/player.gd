@@ -4,11 +4,10 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 
 const SPEED = 300.0
-
 const SPRINT_SPEED = 750.0
+const SLIDE_SPEED = 1200
 
 var health
-
 func getHealth():
 	return health
 
@@ -20,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	var directionx := Input.get_axis("left", "right")
 	var directiony := Input.get_axis("up", "down")
 	var sprint := Input.is_action_pressed("sprint")
+	var slide := Input.is_action_pressed("slide")
 	
 	var current_speed
 	
@@ -47,7 +47,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, current_speed)
 		
 	if velocity.x != 0 or velocity.y != 0:
-		animated_sprite.play("run")
+		animated_sprite.play("slide")
+		if slide and sprint: # animation gia to slide
+			animated_sprite.play("slide")
+			current_speed = SLIDE_SPEED
+			# tha to afjanei gia liga ms to speed kai meta tha to mionei stadiaka kai proodeutika
+			#while Input.action_press("slide"):
+				#tha mionei to speed nexri na stamatisei teleios (speed = 0) oso krataei patimeno to space
+			# otan to afinei to space apistrefei sto run speed
+				
+			
+			
 	else:
 		animated_sprite.play("idle")
 		
