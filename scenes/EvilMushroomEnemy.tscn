@@ -164,7 +164,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trf33"]
-radius = 9.0
+radius = 25.007
 height = 51.9985
 
 [sub_resource type="Animation" id="Animation_coku3"]
@@ -289,8 +289,9 @@ enemy = NodePath("../..")
 script = ExtResource("7_2gnhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
-position = Vector2(0, 5)
+position = Vector2(1, 8)
 rotation = 1.5631
+scale = Vector2(1.20973, 1.1891)
 shape = SubResource("CapsuleShape2D_trf33")
 
 [node name="Attack_Anim" type="AnimationPlayer" parent="CharacterBody2D"]
