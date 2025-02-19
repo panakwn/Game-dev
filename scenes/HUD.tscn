@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvmr8k5l3j42d"]
+
+[ext_resource type="Texture2D" uid="uid://dx84at8gxovi3" path="res://data/Health bar/DeathBar.png" id="1_bova2"]
+[ext_resource type="Texture2D" uid="uid://dtbht8hpcckhp" path="res://data/Health bar/Sprite-heart-real.png" id="2_lchp4"]
+[ext_resource type="Script" path="res://scenes/texture_progress_bar.gd" id="3_qfbux"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 70.0
+scale = Vector2(2.11832, 2.11832)
+value = 10.0
+fill_mode = 3
+texture_under = ExtResource("1_bova2")
+texture_progress = ExtResource("2_lchp4")
+script = ExtResource("3_qfbux")

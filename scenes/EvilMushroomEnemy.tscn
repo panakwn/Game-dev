@@ -1,14 +1,46 @@
-[gd_scene load_steps=20 format=3 uid="uid://svlb6g2rbkhj"]
+[gd_scene load_steps=35 format=3 uid="uid://svlb6g2rbkhj"]
 
 [ext_resource type="Script" path="res://script/EvilMushroom.gd" id="1_503eu"]
 [ext_resource type="Texture2D" uid="uid://b32yf6mtu5fqa" path="res://data/Mushroom/Idle.png" id="1_jdcim"]
 [ext_resource type="Script" path="res://script/StateMachine.gd" id="2_v61v5"]
+[ext_resource type="Texture2D" uid="uid://c1vnx8ttxnkt1" path="res://data/Mushroom/Attack.png" id="2_x0asj"]
 [ext_resource type="Texture2D" uid="uid://cg00xr2dj3dfc" path="res://data/Mushroom/Run.png" id="3_gg672"]
 [ext_resource type="Script" path="res://script/EnemyIdle.gd" id="3_tr01x"]
 [ext_resource type="Script" path="res://script/EnemyFollowPlayer.gd" id="6_2xobj"]
+[ext_resource type="Script" path="res://script/HitBox.gd" id="7_2gnhb"]
+[ext_resource type="Script" path="res://script/EnemyAttack.gd" id="8_uk6fp"]
+[ext_resource type="AudioStream" uid="uid://cbk08xanydrc3" path="res://data/Mushroom/Orc_Attack.wav" id="10_j50pa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lj2th"]
 radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1py2"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52qc4"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pthan"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gavw6"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c0ti"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7udwr"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_615gn"]
+atlas = ExtResource("2_x0asj")
+region = Rect2(900, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3op3y"]
 atlas = ExtResource("1_jdcim")
@@ -58,6 +90,35 @@ region = Rect2(900, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n1py2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52qc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pthan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gavw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c0ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7udwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_615gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1py2")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3op3y")
 }, {
 "duration": 1.0,
@@ -100,6 +161,62 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trf33"]
+radius = 9.0
+height = 51.9985
+
+[sub_resource type="Animation" id="Animation_coku3"]
+resource_name = "attac"
+step = 0.142857
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.857143, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_j50pa")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_wge05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7pf6"]
+_data = {
+"RESET": SubResource("Animation_wge05"),
+"attac": SubResource("Animation_coku3")
+}
+
 [node name="EvilMushroomEnemy" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -114,8 +231,10 @@ shape = SubResource("CircleShape2D_lj2th")
 y_sort_enabled = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pemb7")
-animation = &"Run"
+animation = &"Attack"
 autoplay = "Idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="StateMachine" type="Node" parent="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_v61v5")
@@ -130,3 +249,22 @@ move_speed = 250
 script = ExtResource("6_2xobj")
 enemy = NodePath("../..")
 move_speed = 480
+
+[node name="Attack" type="Node" parent="CharacterBody2D/StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_uk6fp")
+enemy = NodePath("../..")
+
+[node name="HitBox" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("7_2gnhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
+position = Vector2(0, 5)
+rotation = 1.5631
+shape = SubResource("CapsuleShape2D_trf33")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_w7pf6")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D/AnimationPlayer"]

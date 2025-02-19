@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=17 format=3 uid="uid://ch0me5vux4or2"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bxjrjgc7cx505" path="res://data/player/animations/run/player_run_0007.png" id="9_i5gqx"]
 [ext_resource type="Texture2D" uid="uid://d07d28otbopkk" path="res://data/player/animations/run/player_run_0008.png" id="10_aks13"]
 [ext_resource type="Texture2D" uid="uid://dyaqndyqpiyqw" path="res://data/player/animations/run/player_run_0009.png" id="11_amjry"]
+[ext_resource type="Script" path="res://script/HurtBox.gd" id="13_covql"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -62,6 +63,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
 radius = 55.3173
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr1d1"]
+size = Vector2(68.0976, 89.3266)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
@@ -76,5 +80,13 @@ autoplay = "run"
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)
 shape = SubResource("CircleShape2D_886dh")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("13_covql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(10, 50)
+scale = Vector2(1.98178, 3.75461)
+shape = SubResource("RectangleShape2D_yr1d1")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

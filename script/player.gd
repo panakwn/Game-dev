@@ -7,6 +7,14 @@ const SPEED = 300.0
 
 const SPRINT_SPEED = 750.0
 
+var health
+
+func getHealth():
+	return health
+
+func _ready() -> void:
+	health = 100
+
 func _physics_process(delta: float) -> void:
 
 	var directionx := Input.get_axis("left", "right")
@@ -50,3 +58,5 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		
 	move_and_slide()
+func take_damage(damage):
+	health -= 10

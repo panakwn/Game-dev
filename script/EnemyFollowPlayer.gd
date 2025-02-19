@@ -19,8 +19,11 @@ func PhysicsUpdate(delta: float):
 		enemy.velocity= direction.normalized() *move_speed
 	else:
 		enemy.velocity = Vector2()
+		print("attack")
+		Transitioned.emit(self, "Attack")
 	if direction.length() > 1000:
 		Transitioned.emit(self, "EnemyIdle")	
+
 	
 func Exit():
 	pass
