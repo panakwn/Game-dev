@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=26 format=3 uid="uid://ch0me5vux4or2"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://cgw5ong5ojdaf" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
 [ext_resource type="Texture2D" uid="uid://cvk3d1fyegpb7" path="res://data/player/animations/slide/slide_0008.png" id="15_bukd5"]
 [ext_resource type="Texture2D" uid="uid://cxj3bd3yfvjyr" path="res://data/player/animations/slide/slide_0011.png" id="16_8030e"]
+[ext_resource type="Script" path="res://script/StateMachine.gd" id="18_00261"]
+[ext_resource type="Script" path="res://script/PlayerSprint.gd" id="19_nwg8p"]
+[ext_resource type="Script" path="res://script/PlayerIdle.gd" id="20_11x5u"]
+[ext_resource type="Script" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
+[ext_resource type="Script" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -75,6 +80,27 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8030e")
 }],
 "loop": false,
 "name": &"slide",
@@ -108,5 +134,25 @@ script = ExtResource("13_covql")
 position = Vector2(10, 50)
 scale = Vector2(1.98178, 3.75461)
 shape = SubResource("RectangleShape2D_yr1d1")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("18_00261")
+initial_state = NodePath("Idle")
+
+[node name="Sprint" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("19_nwg8p")
+player = NodePath("../..")
+
+[node name="Slide" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("20_nmsd0")
+player = NodePath("../..")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("20_11x5u")
+player = NodePath("../..")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("21_wdc1s")
+player = NodePath("../..")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
