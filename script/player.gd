@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 		
 	move_and_slide()
-	#lol
+	#loll
 	
 func take_damage(damage):
 	health -= 10
