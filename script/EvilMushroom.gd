@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 
 var is_attacking: bool = false
+
+func _ready() -> void:
+	$HitBox/CollisionShape2D.disabled = true
 func _physics_process(delta: float) -> void:
 	#print("velo", velocity)
 	if is_attacking:
