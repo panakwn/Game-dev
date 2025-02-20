@@ -1,17 +1,29 @@
-[gd_scene load_steps=26 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=38 format=3 uid="uid://ch0me5vux4or2"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
 [ext_resource type="Texture2D" uid="uid://5jqww2acu5hk" path="res://data/player/animations/run/player_run_0000.png" id="2_ko8gv"]
+[ext_resource type="Texture2D" uid="uid://tkbag6gq8thw" path="res://data/player/animations/death/death_0000.png" id="2_q8nx8"]
 [ext_resource type="Texture2D" uid="uid://8bpcnd463fvo" path="res://data/player/animations/run/player_run_0001.png" id="3_7pjfv"]
+[ext_resource type="Texture2D" uid="uid://11eoluw3qsqm" path="res://data/player/animations/death/death_0001.png" id="3_hkakn"]
+[ext_resource type="Texture2D" uid="uid://cany16738c8sb" path="res://data/player/animations/death/death_0002.png" id="4_drm5p"]
 [ext_resource type="Texture2D" uid="uid://boku5mr6i5doy" path="res://data/player/animations/run/player_run_0002.png" id="4_eya7g"]
 [ext_resource type="Texture2D" uid="uid://ddgkhai1j31op" path="res://data/player/animations/run/player_run_0003.png" id="5_64kda"]
+[ext_resource type="Texture2D" uid="uid://bwa2qb0opruoq" path="res://data/player/animations/death/death_0003.png" id="5_kxygr"]
 [ext_resource type="Texture2D" uid="uid://cf1spkrhwgrto" path="res://data/player/animations/run/player_run_0004.png" id="6_jpm2b"]
+[ext_resource type="Texture2D" uid="uid://rmfewbjna5wr" path="res://data/player/animations/death/death_0004.png" id="6_l8u4d"]
 [ext_resource type="Texture2D" uid="uid://cvlgsul17kai2" path="res://data/player/animations/run/player_run_0005.png" id="7_5e1jd"]
+[ext_resource type="Texture2D" uid="uid://cvajd0vobokrm" path="res://data/player/animations/death/death_0005.png" id="7_hguav"]
 [ext_resource type="Texture2D" uid="uid://dm5abrfu63mi2" path="res://data/player/animations/run/player_run_0006.png" id="8_dlskl"]
+[ext_resource type="Texture2D" uid="uid://ro6ioqlrn7wn" path="res://data/player/animations/death/death_0006.png" id="8_onpwm"]
 [ext_resource type="Texture2D" uid="uid://bxjrjgc7cx505" path="res://data/player/animations/run/player_run_0007.png" id="9_i5gqx"]
+[ext_resource type="Texture2D" uid="uid://c3docf5bsitet" path="res://data/player/animations/death/death_0007.png" id="9_v13bd"]
+[ext_resource type="Texture2D" uid="uid://dsrni5u0136em" path="res://data/player/animations/death/death_0008.png" id="10_1yvqq"]
 [ext_resource type="Texture2D" uid="uid://d07d28otbopkk" path="res://data/player/animations/run/player_run_0008.png" id="10_aks13"]
+[ext_resource type="Texture2D" uid="uid://nxrebrkmb2d7" path="res://data/player/animations/death/death_0009.png" id="11_1isso"]
 [ext_resource type="Texture2D" uid="uid://dyaqndyqpiyqw" path="res://data/player/animations/run/player_run_0009.png" id="11_amjry"]
+[ext_resource type="Texture2D" uid="uid://cknt0rxifp1el" path="res://data/player/animations/death/death_0010.png" id="12_21nmx"]
+[ext_resource type="Texture2D" uid="uid://cx1ockuqin6or" path="res://data/player/animations/death/death_0011.png" id="13_08q5p"]
 [ext_resource type="Script" path="res://script/HurtBox.gd" id="13_covql"]
 [ext_resource type="Texture2D" uid="uid://bp528jua11pc5" path="res://data/player/animations/slide/slide_0002.png" id="13_mbntj"]
 [ext_resource type="Texture2D" uid="uid://cgw5ong5ojdaf" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
@@ -25,6 +37,62 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q8nx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hkakn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_drm5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kxygr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l8u4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hguav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hguav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_onpwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hguav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hguav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hguav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_onpwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v13bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1yvqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1isso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_21nmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_73hi2")
@@ -119,9 +187,9 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_43s82")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(-2, 86)
 sprite_frames = SubResource("SpriteFrames_qi5bw")
-animation = &"idle"
+animation = &"slide"
 
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)
