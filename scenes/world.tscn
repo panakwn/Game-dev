@@ -72,6 +72,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 
 [node name="EvilMushroomEnemy2" parent="." instance=ExtResource("5_4g1sr")]
 position = Vector2(-463, 505)
