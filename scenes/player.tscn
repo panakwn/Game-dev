@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://d07d28otbopkk" path="res://data/player/animations/run/player_run_0008.png" id="10_aks13"]
 [ext_resource type="Texture2D" uid="uid://dyaqndyqpiyqw" path="res://data/player/animations/run/player_run_0009.png" id="11_amjry"]
 [ext_resource type="Script" path="res://script/HurtBox.gd" id="13_covql"]
-[ext_resource type="Texture2D" uid="uid://cb2gi6hhjxoea" path="res://data/player/animations/slide/slide_0002.png" id="13_mbntj"]
-[ext_resource type="Texture2D" uid="uid://brrebygakf35o" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
-[ext_resource type="Texture2D" uid="uid://bhcv7klraphki" path="res://data/player/animations/slide/slide_0008.png" id="15_bukd5"]
-[ext_resource type="Texture2D" uid="uid://dd4dgjpq0k22a" path="res://data/player/animations/slide/slide_0011.png" id="16_8030e"]
+[ext_resource type="Texture2D" uid="uid://bf37bh4xjbcxc" path="res://data/player/animations/slide/slide_0002.png" id="13_mbntj"]
+[ext_resource type="Texture2D" uid="uid://bgalaqcp8fcpm" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
+[ext_resource type="Texture2D" uid="uid://b7ptjcc8k70e4" path="res://data/player/animations/slide/slide_0008.png" id="15_bukd5"]
+[ext_resource type="Texture2D" uid="uid://b60fvncpji1tr" path="res://data/player/animations/slide/slide_0011.png" id="16_8030e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_73hi2")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -76,7 +76,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_8030e")
 }],
-"loop": true,
+"loop": false,
 "name": &"slide",
 "speed": 20.0
 }]
@@ -95,7 +95,7 @@ script = ExtResource("1_43s82")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_qi5bw")
-animation = &"slide"
+animation = &"idle"
 
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)

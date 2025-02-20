@@ -5,9 +5,13 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const SPRINT_SPEED = 750.0
-const SLIDE_SPEED = 1200
+const SLIDE_SPEED = SPRINT_SPEED * 10.0
+const SLIDE_DECREMENT = 10
+const SLIDE_INTERVAL = 0.01
 
 var health
+var slide_timer = 0.0  
+
 func getHealth():
 	return health
 
@@ -16,57 +20,67 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
-	var directionx := Input.get_axis("left", "right")
-	var directiony := Input.get_axis("up", "down")
-	var sprint := Input.is_action_pressed("sprint")
-	var slide := Input.is_action_pressed("slide")
+	var input_x = Input.get_axis("left", "right")
+	var input_y = Input.get_axis("up", "down")
+	var move_dir = Vector2(input_x, input_y)
 	
-	var current_speed
+	var is_sprinting := Input.is_action_pressed("sprint")
+	var is_sliding := Input.is_action_pressed("slide")
 	
-	if sprint:
-		current_speed = SPRINT_SPEED
+	var speed = SPEED
+	if is_sprinting:
+		speed = SPRINT_SPEED
 		animated_sprite.speed_scale = 2
 	else:
-		current_speed = SPEED
-		animated_sprite.speed_scale  = 1
+		animated_sprite.speed_scale = 1
 	
-	if directionx:
-		if directiony:
-			velocity.x = directionx * current_speed * 0.75
-		else:
-			velocity.x = directionx * current_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-	
-	if directiony:
-		if directionx:
-			velocity.y = directiony * current_speed * 0.75
-		else:
-			velocity.y = directiony * current_speed
-	else:
-		velocity.y = move_toward(velocity.y, 0, current_speed)
+	if move_dir != Vector2.ZERO:
+		move_dir = move_dir.normalized()
 		
-	if velocity.x != 0 or velocity.y != 0:
-		animated_sprite.play("slide")
-		if slide and sprint: # animation gia to slide
-			animated_sprite.play("slide")
-			current_speed = SLIDE_SPEED
-			# tha to afjanei gia liga ms to speed kai meta tha to mionei stadiaka kai proodeutika
-			#while Input.action_press("slide"):
-				#tha mionei to speed nexri na stamatisei teleios (speed = 0) oso krataei patimeno to space
-			# otan to afinei to space apistrefei sto run speed
+		# elenxos gia slide otan kanei sprint
+		if is_sliding and is_sprinting:
+			if animated_sprite.animation != "slide":
+				animated_sprite.animation = "slide"
 				
+				animated_sprite.play()
+				speed = SLIDE_SPEED
+				print("Slide animation started, speed set to ", speed)
+			# mionei taxitita oso krataei to koumpi tou slide
 			
+			# THELEI WHILE GIA NA MIONEI STADIAKA TO DIRECTION SPEED
 			
+			if Input.is_action_pressed("slide"):
+				slide_timer += delta
+				if slide_timer >= SLIDE_INTERVAL:
+					speed -= SLIDE_DECREMENT
+					slide_timer -= SLIDE_INTERVAL
+					print("Sliding: speed decreased to ", speed)
+			else:
+				# SPRINT_SPEED
+				speed = SPRINT_SPEED
+				slide_timer = 0.0
+				print("Slide released: speed reset to ", speed)
+		else:
+			# alios paizei to run
+			if animated_sprite.animation != "run":
+				animated_sprite.animation = "run"
+				
+				animated_sprite.play()
+		
+		velocity = move_dir * speed
 	else:
-		animated_sprite.play("idle")
-		
-		
-	if directionx > 0:
-		animated_sprite.flip_h = false
-	if directionx < 0:
+		velocity = Vector2.ZERO
+		if animated_sprite.animation != "idle":
+			animated_sprite.animation = "idle"
+			animated_sprite.play()
+	
+	if input_x < 0:
 		animated_sprite.flip_h = true
+	elif input_x > 0:
+		animated_sprite.flip_h = false
 		
 	move_and_slide()
+	
+	
 func take_damage(damage):
 	health -= 10
