@@ -200,12 +200,12 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Attack_Anim/AudioStreamPlayer2D")
+tracks/1/path = NodePath("Attack_Anim/OrcAttack")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.828801,
+"end_offset": 0.820308,
 "start_offset": 0.0,
 "stream": ExtResource("10_j50pa")
 }],
@@ -224,16 +224,16 @@ resource_name = "step"
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Walk_Anim/AudioStreamPlayer2D")
+tracks/0/path = NodePath("Walk_Anim/OrcStep")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": [{
-"end_offset": 0.57,
+"end_offset": 0.589768,
 "start_offset": 0.0,
 "stream": ExtResource("11_etj8s")
 }, {
-"end_offset": 0.19,
+"end_offset": 0.596042,
 "start_offset": 0.0,
 "stream": ExtResource("11_etj8s")
 }],
@@ -299,13 +299,12 @@ libraries = {
 "": SubResource("AnimationLibrary_w7pf6")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D/Attack_Anim"]
-max_distance = 5085.0
+[node name="OrcAttack" type="AudioStreamPlayer" parent="CharacterBody2D/Attack_Anim"]
 
 [node name="Walk_Anim" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_8xx8t")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D/Walk_Anim"]
-max_distance = 3930.0
+[node name="OrcStep" type="AudioStreamPlayer" parent="CharacterBody2D/Walk_Anim"]
+stream = ExtResource("11_etj8s")
