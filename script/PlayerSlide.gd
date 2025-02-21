@@ -31,6 +31,8 @@ func Update(delta: float):
 func PhysicsUpdate(_delta: float):
 	player.animated_sprite.speed_scale = 1
 	player.velocity = player.move_dir * SPEED * drag
+	if player.health <= 0:
+		Transitioned.emit(self, "Death")
 	if !player.move_dir.length() > 0:
 		Transitioned.emit(self, "Idle")
 	elif player.move_dir.length() > 0 and player.is_sprinting and !player.is_sliding:

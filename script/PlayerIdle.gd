@@ -15,6 +15,8 @@ func Update(delta: float):
 		player.slide_cool -= delta * 1.5
 
 func PhysicsUpdate(_delta: float):
+	if player.health <= 0:
+		Transitioned.emit(self, "Death")
 	if player.move_dir.length() > 0  and player.is_sprinting:
 		Transitioned.emit(self, "Sprint")
 	elif player.move_dir.length() > 0:

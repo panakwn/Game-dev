@@ -14,7 +14,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcvhj"]
 radius = 6.0
-height = 24.0
+height = 26.0043
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1py2"]
 atlas = ExtResource("2_x0asj")
@@ -163,9 +163,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trf33"]
-radius = 25.007
-height = 51.9985
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6hr0d"]
+radius = 13.2198
+height = 40.3007
 
 [sub_resource type="Animation" id="Animation_wge05"]
 length = 0.001
@@ -289,10 +289,10 @@ enemy = NodePath("../..")
 script = ExtResource("7_2gnhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
-position = Vector2(1, 8)
-rotation = 1.5631
+position = Vector2(12, 8)
+rotation = 0.00717199
 scale = Vector2(1.20973, 1.1891)
-shape = SubResource("CapsuleShape2D_trf33")
+shape = SubResource("CapsuleShape2D_6hr0d")
 
 [node name="Attack_Anim" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d32trl4jpmyk1"
+path="res://.godot/imported/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3-5fe30f3eaa6af886851762eafd6bfd57.mp3str"
+
+[deps]
+
+source_file="res://data/Death/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3"
+dest_files=["res://.godot/imported/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3-5fe30f3eaa6af886851762eafd6bfd57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

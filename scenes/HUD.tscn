@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvmr8k5l3j42d"]
+[gd_scene load_steps=9 format=3 uid="uid://dvmr8k5l3j42d"]
 
 [ext_resource type="Texture2D" uid="uid://dx84at8gxovi3" path="res://data/Health bar/DeathBar.png" id="1_bova2"]
 [ext_resource type="Texture2D" uid="uid://dtbht8hpcckhp" path="res://data/Health bar/Sprite-heart-real.png" id="2_lchp4"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://btidehc32frjq" path="res://data/AbilityBar/empty_bar.png" id="4_tqk7f"]
 [ext_resource type="Texture2D" uid="uid://cxa75tnpdklou" path="res://data/AbilityBar/magic_barFull.png" id="5_sc7ik"]
 [ext_resource type="Script" path="res://script/AbilityCoolDownBar.gd" id="6_oybtp"]
+[ext_resource type="Texture2D" uid="uid://d2mqbx1nwneyt" path="res://data/Death/youdied-removebg-preview.png" id="7_7b105"]
+[ext_resource type="Script" path="res://script/youdied.gd" id="8_qysu4"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -22,7 +24,7 @@ offset_left = -5.0
 offset_top = 15.0
 offset_right = 59.0
 offset_bottom = 79.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2.79469, 2.79469)
 value = 10.0
 fill_mode = 3
 texture_under = ExtResource("1_bova2")
@@ -33,13 +35,23 @@ script = ExtResource("3_qfbux")
 z_index = -1
 texture_filter = 1
 layout_mode = 0
-offset_left = 61.0
-offset_top = 76.0
-offset_right = 159.0
-offset_bottom = 116.0
+offset_left = 110.0
+offset_top = 140.0
+offset_right = 208.0
+offset_bottom = 180.0
+scale = Vector2(2.75376, 2.18152)
 max_value = 2.0
 step = 0.1
 fill_mode = 1
 texture_under = ExtResource("5_sc7ik")
 texture_progress = ExtResource("4_tqk7f")
 script = ExtResource("6_oybtp")
+
+[node name="Youdied-removebg-preview" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.4)
+z_index = -2
+texture_filter = 1
+position = Vector2(577, 323)
+scale = Vector2(3.51671, 3.51671)
+texture = ExtResource("7_7b105")
+script = ExtResource("8_qysu4")

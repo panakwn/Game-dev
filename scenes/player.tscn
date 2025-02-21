@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=43 format=3 uid="uid://ch0me5vux4or2"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
@@ -34,6 +34,9 @@
 [ext_resource type="Script" path="res://script/PlayerIdle.gd" id="20_11x5u"]
 [ext_resource type="Script" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
 [ext_resource type="Script" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
+[ext_resource type="AudioStream" uid="uid://6rpyo3e0ceqb" path="res://data/Death/HumanInjured3.wav" id="29_01gct"]
+[ext_resource type="AudioStream" uid="uid://d32trl4jpmyk1" path="res://data/Death/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3" id="30_ebite"]
+[ext_resource type="Script" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -85,6 +88,48 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_21nmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_08q5p")
 }, {
 "duration": 1.0,
 "texture": ExtResource("13_08q5p")
@@ -175,6 +220,35 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Animation" id="Animation_jdpgs"]
+resource_name = "new_animation"
+length = 3.00001
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/SplatSoundEffectFreeDownloadableRoyaltyFreeBackgroundMusicNoCopyright[vrJksfxNnRm]")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.141866,
+"start_offset": 0.0395366,
+"stream": ExtResource("29_01gct")
+}, {
+"end_offset": 0.518627,
+"start_offset": 0.144192,
+"stream": ExtResource("30_ebite")
+}],
+"times": PackedFloat32Array(0.4, 1.6)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bht2"]
+_data = {
+"new_animation": SubResource("Animation_jdpgs")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
 radius = 55.3173
 
@@ -189,7 +263,16 @@ script = ExtResource("1_43s82")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 86)
 sprite_frames = SubResource("SpriteFrames_qi5bw")
-animation = &"slide"
+animation = &"death"
+frame = 16
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8bht2")
+}
+
+[node name="SplatSoundEffectFreeDownloadableRoyaltyFreeBackgroundMusicNoCopyright[vrJksfxNnRm]" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)
@@ -221,6 +304,10 @@ player = NodePath("../..")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("21_wdc1s")
+player = NodePath("../..")
+
+[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("35_m2u6c")
 player = NodePath("../..")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

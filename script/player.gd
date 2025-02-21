@@ -22,6 +22,7 @@ var has_cooled: bool
 #Health
 var health
 var slide_timer = 0.0  
+var is_dead
 
 func getInput():
 	input_x = Input.get_axis("left", "right")
@@ -38,18 +39,20 @@ func _ready() -> void:
 	health = 100
 	slide_cool = 0.0
 	has_cooled = true
+	is_dead = false
 
 func _physics_process(delta: float) -> void:
-	
-	#copied code was here;	
 	getInput()
-	
-	if velocity.length() > 0 and is_sliding and has_cooled:
-		$AnimatedSprite.play("slide")
-	elif velocity.length() > 0:
-		$AnimatedSprite.play("run")
+	if is_dead:
+		$AnimatedSprite.play("death")
+		$AnimationPlayer.play("new_animation")
 	else:
-		$AnimatedSprite.play("idle")
+		if velocity.length() > 0 and is_sliding and has_cooled:
+			$AnimatedSprite.play("slide")
+		elif velocity.length() > 0:
+			$AnimatedSprite.play("run")
+		else:
+			$AnimatedSprite.play("idle")
 	
 	if input_x != 0 and input_y != 0:
 		velocity.x = velocity.x * 0.75
@@ -65,3 +68,6 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage(damage):
 	health -= 10
+
+func die():
+	is_dead = true

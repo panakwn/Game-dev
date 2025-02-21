@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://svlb6g2rbkhj" path="res://scenes/EvilMushroomEnemy.tscn" id="5_4g1sr"]
 [ext_resource type="PackedScene" uid="uid://dvmr8k5l3j42d" path="res://scenes/HUD.tscn" id="6_f3o1o"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["World"]]
 y_sort_enabled = true
 position = Vector2(794, 780)
 
