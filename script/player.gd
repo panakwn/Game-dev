@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage(damage):
 	health -= 10
-
+	if !is_dead:
+		$AnimationPlayer.play("hit")
 func die():
 	is_dead = true
