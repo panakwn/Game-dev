@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://ch0me5vux4or2"]
 
-[ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
+[ext_resource type="Script" uid="uid://dwpji5cwdnwd4" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
 [ext_resource type="Texture2D" uid="uid://5jqww2acu5hk" path="res://data/player/animations/run/player_run_0000.png" id="2_ko8gv"]
 [ext_resource type="Texture2D" uid="uid://tkbag6gq8thw" path="res://data/player/animations/death/death_0000.png" id="2_q8nx8"]
@@ -24,20 +24,20 @@
 [ext_resource type="Texture2D" uid="uid://dyaqndyqpiyqw" path="res://data/player/animations/run/player_run_0009.png" id="11_amjry"]
 [ext_resource type="Texture2D" uid="uid://cknt0rxifp1el" path="res://data/player/animations/death/death_0010.png" id="12_21nmx"]
 [ext_resource type="Texture2D" uid="uid://cx1ockuqin6or" path="res://data/player/animations/death/death_0011.png" id="13_08q5p"]
-[ext_resource type="Script" path="res://script/HurtBox.gd" id="13_covql"]
+[ext_resource type="Script" uid="uid://1gvmtyi6giuw" path="res://script/HurtBox.gd" id="13_covql"]
 [ext_resource type="Texture2D" uid="uid://bp528jua11pc5" path="res://data/player/animations/slide/slide_0002.png" id="13_mbntj"]
 [ext_resource type="Texture2D" uid="uid://cgw5ong5ojdaf" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
 [ext_resource type="Texture2D" uid="uid://cvk3d1fyegpb7" path="res://data/player/animations/slide/slide_0008.png" id="15_bukd5"]
 [ext_resource type="Texture2D" uid="uid://cxj3bd3yfvjyr" path="res://data/player/animations/slide/slide_0011.png" id="16_8030e"]
-[ext_resource type="Script" path="res://script/StateMachine.gd" id="18_00261"]
-[ext_resource type="Script" path="res://script/PlayerSprint.gd" id="19_nwg8p"]
-[ext_resource type="Script" path="res://script/PlayerIdle.gd" id="20_11x5u"]
-[ext_resource type="Script" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
-[ext_resource type="Script" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
+[ext_resource type="Script" uid="uid://eut422l3y4yu" path="res://script/StateMachine.gd" id="18_00261"]
+[ext_resource type="Script" uid="uid://b7cw7h845jhef" path="res://script/PlayerSprint.gd" id="19_nwg8p"]
+[ext_resource type="Script" uid="uid://dkx55lsjic4he" path="res://script/PlayerIdle.gd" id="20_11x5u"]
+[ext_resource type="Script" uid="uid://cyn3qw6m8bspt" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
+[ext_resource type="Script" uid="uid://cfmxw6gqwdirv" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
 [ext_resource type="AudioStream" uid="uid://6rpyo3e0ceqb" path="res://data/Death/HumanInjured3.wav" id="29_01gct"]
 [ext_resource type="AudioStream" uid="uid://d32trl4jpmyk1" path="res://data/Death/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3" id="30_ebite"]
 [ext_resource type="AudioStream" uid="uid://dy2d765f1bf41" path="res://data/Death/HumanInjured1.wav" id="31_yj25u"]
-[ext_resource type="Script" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
+[ext_resource type="Script" uid="uid://dw86ey00x1erw" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -267,8 +267,8 @@ tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bht2"]
 _data = {
-"hit": SubResource("Animation_s67ej"),
-"new_animation": SubResource("Animation_jdpgs")
+&"hit": SubResource("Animation_s67ej"),
+&"new_animation": SubResource("Animation_jdpgs")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
