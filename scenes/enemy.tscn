@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqpy4s3w5oogm"]
 
 [ext_resource type="Texture2D" uid="uid://b32yf6mtu5fqa" path="res://data/Mushroom/Idle.png" id="1_6pfrl"]
-[ext_resource type="Script" path="res://script/StateMachine.gd" id="2_ocmk0"]
-[ext_resource type="Script" path="res://script/EnemyIdle.gd" id="3_6hgq5"]
+[ext_resource type="Script" uid="uid://bpc3q6wcslr2q" path="res://script/StateMachine.gd" id="2_ocmk0"]
+[ext_resource type="Script" uid="uid://dlqlyyob8w0pv" path="res://script/EnemyIdle.gd" id="3_6hgq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2kqs"]
 size = Vector2(14, 7)

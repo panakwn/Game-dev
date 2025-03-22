@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://svlb6g2rbkhj" path="res://scenes/EvilMushroomEnemy.tscn" id="5_4g1sr"]
 [ext_resource type="PackedScene" uid="uid://dvmr8k5l3j42d" path="res://scenes/HUD.tscn" id="6_f3o1o"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["World"]]
 y_sort_enabled = true
 position = Vector2(794, 780)
 
@@ -73,7 +73,3 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.8, 0.8)
-
-[node name="EvilMushroomEnemy2" parent="." instance=ExtResource("5_4g1sr")]
-position = Vector2(-463, 505)
-scale = Vector2(5.4814, 10.6906)

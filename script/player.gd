@@ -49,8 +49,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		if velocity.length() > 0 and is_sliding and has_cooled:
 			$AnimatedSprite.play("slide")
+			$AnimationPlayer.play("slide")
 		elif velocity.length() > 0:
 			$AnimatedSprite.play("run")
+			$AnimationPlayer.play("Run")
+			#walk
 		else:
 			$AnimatedSprite.play("idle")
 	

@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://ch0me5vux4or2"]
+[gd_scene load_steps=50 format=3 uid="uid://ch0me5vux4or2"]
 
-[ext_resource type="Script" path="res://script/player.gd" id="1_43s82"]
+[ext_resource type="Script" uid="uid://d1m32sgceflsw" path="res://script/player.gd" id="1_43s82"]
 [ext_resource type="Texture2D" uid="uid://ducrvuessdhqu" path="res://data/player/animations/idle/player_idle.png" id="1_73hi2"]
 [ext_resource type="Texture2D" uid="uid://5jqww2acu5hk" path="res://data/player/animations/run/player_run_0000.png" id="2_ko8gv"]
 [ext_resource type="Texture2D" uid="uid://tkbag6gq8thw" path="res://data/player/animations/death/death_0000.png" id="2_q8nx8"]
@@ -24,20 +24,20 @@
 [ext_resource type="Texture2D" uid="uid://dyaqndyqpiyqw" path="res://data/player/animations/run/player_run_0009.png" id="11_amjry"]
 [ext_resource type="Texture2D" uid="uid://cknt0rxifp1el" path="res://data/player/animations/death/death_0010.png" id="12_21nmx"]
 [ext_resource type="Texture2D" uid="uid://cx1ockuqin6or" path="res://data/player/animations/death/death_0011.png" id="13_08q5p"]
-[ext_resource type="Script" path="res://script/HurtBox.gd" id="13_covql"]
+[ext_resource type="Script" uid="uid://cvtsngxeoh85b" path="res://script/HurtBox.gd" id="13_covql"]
 [ext_resource type="Texture2D" uid="uid://bp528jua11pc5" path="res://data/player/animations/slide/slide_0002.png" id="13_mbntj"]
 [ext_resource type="Texture2D" uid="uid://cgw5ong5ojdaf" path="res://data/player/animations/slide/slide_0005.png" id="14_es4as"]
 [ext_resource type="Texture2D" uid="uid://cvk3d1fyegpb7" path="res://data/player/animations/slide/slide_0008.png" id="15_bukd5"]
 [ext_resource type="Texture2D" uid="uid://cxj3bd3yfvjyr" path="res://data/player/animations/slide/slide_0011.png" id="16_8030e"]
-[ext_resource type="Script" path="res://script/StateMachine.gd" id="18_00261"]
-[ext_resource type="Script" path="res://script/PlayerSprint.gd" id="19_nwg8p"]
-[ext_resource type="Script" path="res://script/PlayerIdle.gd" id="20_11x5u"]
-[ext_resource type="Script" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
-[ext_resource type="Script" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
+[ext_resource type="Script" uid="uid://bpc3q6wcslr2q" path="res://script/StateMachine.gd" id="18_00261"]
+[ext_resource type="Script" uid="uid://b04asfhoixbka" path="res://script/PlayerSprint.gd" id="19_nwg8p"]
+[ext_resource type="Script" uid="uid://dwlhwn51ahqm4" path="res://script/PlayerIdle.gd" id="20_11x5u"]
+[ext_resource type="Script" uid="uid://cp86mhrrdc15o" path="res://script/PlayerSlide.gd" id="20_nmsd0"]
+[ext_resource type="Script" uid="uid://dyakqe7en11i5" path="res://script/PlayerWalk.gd" id="21_wdc1s"]
 [ext_resource type="AudioStream" uid="uid://6rpyo3e0ceqb" path="res://data/Death/HumanInjured3.wav" id="29_01gct"]
 [ext_resource type="AudioStream" uid="uid://d32trl4jpmyk1" path="res://data/Death/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3" id="30_ebite"]
 [ext_resource type="AudioStream" uid="uid://dy2d765f1bf41" path="res://data/Death/HumanInjured1.wav" id="31_yj25u"]
-[ext_resource type="Script" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
+[ext_resource type="Script" uid="uid://b5wjdb35o0l3y" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -221,6 +221,49 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Resource" id="Resource_t4otl"]
+metadata/__load_path__ = "res://data/player/animations/08_Step_rock_02.wav"
+
+[sub_resource type="Animation" id="Animation_7qy85"]
+resource_name = "Run"
+length = 0.3
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/08StepRock02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.626667,
+"start_offset": 0.0,
+"stream": SubResource("Resource_t4otl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_bxtni"]
+resource_name = "Walk"
+length = 0.6
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/08StepRock02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="Animation" id="Animation_s67ej"]
 resource_name = "hit"
 length = 0.50001
@@ -265,14 +308,40 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = true
 
+[sub_resource type="Resource" id="Resource_j2b1d"]
+metadata/__load_path__ = "res://data/player/animations/22_Slash_04.wav"
+
+[sub_resource type="Animation" id="Animation_lttfu"]
+resource_name = "slide"
+length = 0.5
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/22Slash04")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 1.0,
+"start_offset": 0.0,
+"stream": SubResource("Resource_j2b1d")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bht2"]
 _data = {
-"hit": SubResource("Animation_s67ej"),
-"new_animation": SubResource("Animation_jdpgs")
+&"Run": SubResource("Animation_7qy85"),
+&"Walk": SubResource("Animation_bxtni"),
+&"hit": SubResource("Animation_s67ej"),
+&"new_animation": SubResource("Animation_jdpgs"),
+&"slide": SubResource("Animation_lttfu")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
-radius = 55.3173
+radius = 82.3893
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr1d1"]
 size = Vector2(68.0976, 89.3266)
@@ -289,12 +358,16 @@ animation = &"run"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8bht2")
+&"": SubResource("AnimationLibrary_8bht2")
 }
 
 [node name="SplatSoundEffectFreeDownloadableRoyaltyFreeBackgroundMusicNoCopyright[vrJksfxNnRm]" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="HumanInjured1" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="22Slash04" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="08StepRock02" type="AudioStreamPlayer" parent="AnimationPlayer"]
 
 [node name="world_interaction" type="CollisionShape2D" parent="."]
 position = Vector2(-24, 256)

@@ -1,14 +1,14 @@
 [gd_scene load_steps=38 format=3 uid="uid://svlb6g2rbkhj"]
 
-[ext_resource type="Script" path="res://script/EvilMushroom.gd" id="1_503eu"]
+[ext_resource type="Script" uid="uid://du1g15gjmipqa" path="res://script/EvilMushroom.gd" id="1_503eu"]
 [ext_resource type="Texture2D" uid="uid://b32yf6mtu5fqa" path="res://data/Mushroom/Idle.png" id="1_jdcim"]
-[ext_resource type="Script" path="res://script/StateMachine.gd" id="2_v61v5"]
+[ext_resource type="Script" uid="uid://bpc3q6wcslr2q" path="res://script/StateMachine.gd" id="2_v61v5"]
 [ext_resource type="Texture2D" uid="uid://c1vnx8ttxnkt1" path="res://data/Mushroom/Attack.png" id="2_x0asj"]
 [ext_resource type="Texture2D" uid="uid://cg00xr2dj3dfc" path="res://data/Mushroom/Run.png" id="3_gg672"]
-[ext_resource type="Script" path="res://script/EnemyIdle.gd" id="3_tr01x"]
-[ext_resource type="Script" path="res://script/EnemyFollowPlayer.gd" id="6_2xobj"]
-[ext_resource type="Script" path="res://script/HitBox.gd" id="7_2gnhb"]
-[ext_resource type="Script" path="res://script/EnemyAttack.gd" id="8_uk6fp"]
+[ext_resource type="Script" uid="uid://dlqlyyob8w0pv" path="res://script/EnemyIdle.gd" id="3_tr01x"]
+[ext_resource type="Script" uid="uid://c5l2s7hue0cru" path="res://script/EnemyFollowPlayer.gd" id="6_2xobj"]
+[ext_resource type="Script" uid="uid://dv0wu6amtfdct" path="res://script/HitBox.gd" id="7_2gnhb"]
+[ext_resource type="Script" uid="uid://boxb5qv5bgx0e" path="res://script/EnemyAttack.gd" id="8_uk6fp"]
 [ext_resource type="AudioStream" uid="uid://cbk08xanydrc3" path="res://data/Mushroom/Orc_Attack.wav" id="10_j50pa"]
 [ext_resource type="AudioStream" uid="uid://cuh4qb5iclryf" path="res://data/Mushroom/Orc_Step.wav" id="11_etj8s"]
 
@@ -215,8 +215,8 @@ tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w7pf6"]
 _data = {
-"RESET": SubResource("Animation_wge05"),
-"attac": SubResource("Animation_coku3")
+&"RESET": SubResource("Animation_wge05"),
+&"attac": SubResource("Animation_coku3")
 }
 
 [sub_resource type="Animation" id="Animation_4bm8r"]
@@ -243,7 +243,7 @@ tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xx8t"]
 _data = {
-"step": SubResource("Animation_4bm8r")
+&"step": SubResource("Animation_4bm8r")
 }
 
 [node name="EvilMushroomEnemy" type="Node2D"]
@@ -296,14 +296,14 @@ shape = SubResource("CapsuleShape2D_6hr0d")
 
 [node name="Attack_Anim" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
-"": SubResource("AnimationLibrary_w7pf6")
+&"": SubResource("AnimationLibrary_w7pf6")
 }
 
 [node name="OrcAttack" type="AudioStreamPlayer" parent="CharacterBody2D/Attack_Anim"]
 
 [node name="Walk_Anim" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
-"": SubResource("AnimationLibrary_8xx8t")
+&"": SubResource("AnimationLibrary_8xx8t")
 }
 
 [node name="OrcStep" type="AudioStreamPlayer" parent="CharacterBody2D/Walk_Anim"]
