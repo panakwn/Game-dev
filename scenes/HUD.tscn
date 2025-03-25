@@ -2,12 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://dx84at8gxovi3" path="res://data/Health bar/DeathBar.png" id="1_bova2"]
 [ext_resource type="Texture2D" uid="uid://dtbht8hpcckhp" path="res://data/Health bar/Sprite-heart-real.png" id="2_lchp4"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://rhqm8xn1d4p2" path="res://scenes/texture_progress_bar.gd" id="3_qfbux"]
 [ext_resource type="Texture2D" uid="uid://btidehc32frjq" path="res://data/AbilityBar/empty_bar.png" id="4_tqk7f"]
 [ext_resource type="Texture2D" uid="uid://cxa75tnpdklou" path="res://data/AbilityBar/magic_barFull.png" id="5_sc7ik"]
 [ext_resource type="Script" uid="uid://t8gp31i0ki86" path="res://script/AbilityCoolDownBar.gd" id="6_oybtp"]
 [ext_resource type="Texture2D" uid="uid://d2mqbx1nwneyt" path="res://data/Death/youdied-removebg-preview.png" id="7_7b105"]
 [ext_resource type="Script" uid="uid://btnuvg4p8f1li" path="res://script/youdied.gd" id="8_qysu4"]
+=======
+[ext_resource type="Script" uid="uid://dydew00h8vlay" path="res://scenes/texture_progress_bar.gd" id="3_qfbux"]
+[ext_resource type="Texture2D" uid="uid://btidehc32frjq" path="res://data/AbilityBar/empty_bar.png" id="4_tqk7f"]
+[ext_resource type="Texture2D" uid="uid://cxa75tnpdklou" path="res://data/AbilityBar/magic_barFull.png" id="5_sc7ik"]
+[ext_resource type="Script" uid="uid://d1euvm24lddpd" path="res://script/AbilityCoolDownBar.gd" id="6_oybtp"]
+[ext_resource type="Texture2D" uid="uid://d2mqbx1nwneyt" path="res://data/Death/youdied-removebg-preview.png" id="7_7b105"]
+[ext_resource type="Script" uid="uid://fsdxrh0v4h8r" path="res://script/youdied.gd" id="8_qysu4"]
+>>>>>>> 4007bf8b84587435c91f736485ea8992288c4055
 
 [node name="Hud" type="Control"]
 layout_mode = 3

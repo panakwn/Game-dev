@@ -1,6 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://2olhiqrswect"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://ck0dg7enm0pbd" path="res://addons/gaea/editor/update_button.gd" id="1_8ury3"]
+=======
+[ext_resource type="Script" uid="uid://crur6nvifhh6m" path="res://addons/gaea/editor/update_button.gd" id="1_8ury3"]
+>>>>>>> 4007bf8b84587435c91f736485ea8992288c4055
 [ext_resource type="PackedScene" uid="uid://6pmddcctde0v" path="res://addons/gaea/editor/download_update_panel.tscn" id="2_bw0il"]
 
 [node name="UpdateButton" type="Button"]

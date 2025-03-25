@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://6pmddcctde0v"]
 
 [ext_resource type="Texture2D" uid="uid://b4nwpbrra72fj" path="res://addons/gaea/editor/logo.png" id="1_05fnf"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://immhu478yvk6" path="res://addons/gaea/editor/download_update_panel.gd" id="1_moikk"]
+=======
+[ext_resource type="Script" uid="uid://d1d67ajr2vh8a" path="res://addons/gaea/editor/download_update_panel.gd" id="1_moikk"]
+>>>>>>> 4007bf8b84587435c91f736485ea8992288c4055
 
 [node name="DownloadUpdatePanel" type="Control"]
 layout_mode = 3
