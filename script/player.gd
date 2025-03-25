@@ -53,7 +53,10 @@ func _physics_process(delta: float) -> void:
 		elif velocity.length() > 0:
 			$AnimatedSprite.play("run")
 			$AnimationPlayer.play("Run")
+<<<<<<< Updated upstream
 			#walk
+=======
+>>>>>>> Stashed changes
 		else:
 			$AnimatedSprite.play("idle")
 	

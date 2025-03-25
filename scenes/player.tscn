@@ -46,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://6rpyo3e0ceqb" path="res://data/Death/HumanInjured3.wav" id="29_01gct"]
 [ext_resource type="AudioStream" uid="uid://d32trl4jpmyk1" path="res://data/Death/Splat Sound Effect _ Free Downloadable _ Royalty Free background music no copyright [VrJKSFXNnRM].mp3" id="30_ebite"]
 [ext_resource type="AudioStream" uid="uid://dy2d765f1bf41" path="res://data/Death/HumanInjured1.wav" id="31_yj25u"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://b5wjdb35o0l3y" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
 =======
 [ext_resource type="Script" uid="uid://eut422l3y4yu" path="res://script/StateMachine.gd" id="18_00261"]
@@ -58,6 +59,11 @@
 [ext_resource type="AudioStream" uid="uid://dy2d765f1bf41" path="res://data/Death/HumanInjured1.wav" id="31_yj25u"]
 [ext_resource type="Script" uid="uid://dw86ey00x1erw" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
 >>>>>>> 4007bf8b84587435c91f736485ea8992288c4055
+=======
+[ext_resource type="AudioStream" uid="uid://brit3e7nhtrj5" path="res://data/player/animations/22_Slash_04.wav" id="32_wwkuw"]
+[ext_resource type="AudioStream" uid="uid://oawgq4j0wios" path="res://data/player/animations/08_Step_rock_02.wav" id="33_e51dj"]
+[ext_resource type="Script" path="res://script/DeathScriptPlayer.gd" id="35_m2u6c"]
+>>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi5bw"]
 animations = [{
@@ -328,9 +334,12 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = true
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_j2b1d"]
 metadata/__load_path__ = "res://data/player/animations/22_Slash_04.wav"
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="Animation" id="Animation_lttfu"]
 resource_name = "slide"
 length = 0.5
@@ -345,7 +354,51 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 1.0,
 "start_offset": 0.0,
+<<<<<<< Updated upstream
 "stream": SubResource("Resource_j2b1d")
+=======
+"stream": ExtResource("32_wwkuw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_7qy85"]
+resource_name = "Run"
+length = 0.3
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/08StepRock02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.626667,
+"start_offset": 0.0,
+"stream": ExtResource("33_e51dj")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_bxtni"]
+resource_name = "Walk"
+length = 0.6
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/08StepRock02")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+>>>>>>> Stashed changes
 }],
 "times": PackedFloat32Array(0)
 }
@@ -353,6 +406,7 @@ tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bht2"]
 _data = {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 &"Run": SubResource("Animation_7qy85"),
 &"Walk": SubResource("Animation_bxtni"),
@@ -363,6 +417,13 @@ _data = {
 &"hit": SubResource("Animation_s67ej"),
 &"new_animation": SubResource("Animation_jdpgs")
 >>>>>>> 4007bf8b84587435c91f736485ea8992288c4055
+=======
+"Run": SubResource("Animation_7qy85"),
+"Walk": SubResource("Animation_bxtni"),
+"hit": SubResource("Animation_s67ej"),
+"new_animation": SubResource("Animation_jdpgs"),
+"slide": SubResource("Animation_lttfu")
+>>>>>>> Stashed changes
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_886dh"]
